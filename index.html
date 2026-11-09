@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b16" />
+  <title>VÉU PARTIDO — Arena dos Antigos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="scene" aria-label="Arena 3D de batalha"></canvas>
+    <div class="grain"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Véu Partido"><span class="brand-mark">✦</span><span>VÉU <i>PARTIDO</i></span></a>
+      <div class="chapter"><span class="chapter-line"></span> CAPÍTULO I <span class="chapter-line"></span></div>
+      <button id="sound-btn" class="icon-btn" aria-label="Alternar som"><span>♫</span></button>
+    </header>
+
+    <section class="hud" aria-label="Status da batalha">
+      <div class="boss-card">
+        <div class="boss-heading"><span class="eyebrow">O GUARDIÃO DO ABISMO</span><span class="boss-level">NÍVEL 01</span></div>
+        <div class="boss-name">Khar&apos;Zul <span>✦</span></div>
+        <div class="health-track boss-track"><div id="boss-health" class="health-fill boss-fill"></div><div class="health-glint"></div></div>
+        <div class="health-meta"><span id="boss-hp-label">2.400 / 2.400</span><span id="phase-label">FASE I</span></div>
+      </div>
+      <div class="fight-status"><span class="status-dot"></span><span id="status-text">A BATALHA COMEÇOU</span></div>
+      <div class="player-card">
+        <div class="player-heading"><span class="player-name">A Andarilha</span><span class="player-class">LÂMINA DO VÉU</span></div>
+        <div class="health-track player-track"><div id="player-health" class="health-fill player-fill"></div></div>
+        <div class="health-meta"><span id="player-hp-label">100 / 100</span><span>VITALIDADE</span></div>
+        <div class="stamina-row"><span>FOCO</span><div class="stamina-track"><div id="stamina" class="stamina-fill"></div></div><span id="stamina-label">100</span></div>
+      </div>
+    </section>
+
+    <div class="boss-warning" id="warning"><span class="warning-icon">⚠</span><span id="warning-text">IMPACTO IMINENTE</span></div>
+    <div class="center-message" id="center-message"></div>
+
+    <div class="bottom-ui">
+      <div class="objective"><span class="objective-icon">◈</span><span>Derrote o guardião<br><small>e atravesse o véu</small></span></div>
+      <div class="controls-hint"><span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span><small>MOVER</small><span class="hint-divider"></span><span class="key wide">ESPAÇO</span><small>ESQUIVAR</small></div>
+      <div class="combat-actions">
+        <button id="dodge-btn" class="action dodge" aria-label="Esquivar"><span class="action-glyph">↗</span><small>ESQUIVA</small><kbd>SHIFT</kbd></button>
+        <button id="attack-btn" class="action attack" aria-label="Atacar"><span class="action-glyph">⚔</span><small>ATACAR</small><kbd>J</kbd></button>
+        <button id="special-btn" class="action special" aria-label="Golpe especial"><span class="action-glyph">✧</span><small>RUPTURA</small><kbd>K</kbd><span class="special-ring"></span></button>
+      </div>
+    </div>
+
+    <div class="mobile-controls">
+      <div id="joystick" class="joystick"><div class="joy-ring"><div id="joy-knob" class="joy-knob"></div></div><span class="joy-label">MOVER</span></div>
+    </div>
+
+    <div class="intro-overlay" id="intro">
+      <div class="intro-content">
+        <div class="intro-kicker"><span></span> UMA LENDA DESPERTA <span></span></div>
+        <div class="intro-symbol">✦</div>
+        <h1>Véu<br><em>Partido</em></h1>
+        <p>Há séculos, um guardião vigia<br>o que não deveria ser encontrado.</p>
+        <button id="begin-btn" class="begin-btn"><span>ENTRAR NA ARENA</span><b>↗</b></button>
+        <div class="intro-foot">UMA BATALHA CONTRA O ABISMO</div>
+      </div>
+    </div>
+    <div class="end-overlay hidden" id="end-overlay">
+      <div class="end-content"><div class="end-kicker" id="end-kicker">O VÉU CEDE</div><div class="end-icon" id="end-icon">✦</div><h2 id="end-title">Vitória</h2><p id="end-copy">O guardião voltou ao silêncio.</p><button id="restart-btn" class="begin-btn"><span>JOGAR NOVAMENTE</span><b>↻</b></button></div>
+    </div>
+    <div class="screen-flash" id="screen-flash"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
